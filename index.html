@@ -148,6 +148,7 @@ ol.timeline .sub p{margin:0 0 10px;}
 .wxfb a:hover{background:var(--clay);}
 .wxcredit{font-size:.74rem; color:var(--dusk); text-align:right; margin-top:6px;}
 .wxcredit a{color:inherit;}
+.vidfb.nop .play{display:none;}
 /* Essen / Sheet */
 .sheet-embed{border:1px solid var(--line); border-radius:3px; overflow:hidden; margin:18px 0;}
 .sheet-embed iframe{width:100%; height:420px; border:0; display:block;}
@@ -354,6 +355,22 @@ footer h2{color:#fff;}
   <div class="wrap">
     <p class="eyebrow">Samstag, bei gutem Wetter</p>
     <h2>Wandern, Wetter &amp; Webcam</h2>
+    <div class="weather" data-embed>
+      <iframe src="https://www.meteoblue.com/de/wetter/widget/daily/garmisch-partenkirchen_deutschland_2922530?geoloc=fixed&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coverimage=0&pictoicon=1&maxtemperature=1&mintemperature=1&windspeed=1&windgust=0&winddirection=1&uv=0&humidity=0&precipitation=0&precipitationprobability=0&spot=0&pressure=0&layout=light" title="Wetter Garmisch-Partenkirchen" loading="lazy" scrolling="no"></iframe>
+      <div class="wxfb">
+        <svg width="84" height="60" viewBox="0 0 84 60" aria-hidden="true"><circle cx="30" cy="26" r="12" fill="#E8B04A"/><g stroke="#E8B04A" stroke-width="3" stroke-linecap="round"><path d="M30 6v5M30 41v5M10 26h5M45 26h5M16 12l3 3M44 12l-3 3"/></g><path d="M36 48a10 10 0 0 1 2-19.8A13 13 0 0 1 63 30a9 9 0 0 1-1 18Z" fill="#DDE3E6" stroke="#fff" stroke-width="2"/></svg>
+        <strong>Wetter Garmisch-Partenkirchen</strong>
+        <a href="https://www.meteoblue.com/de/wetter/woche/garmisch-partenkirchen_deutschland_2922530" target="_blank" rel="noopener">Aktuelle Vorhersage bei meteoblue ↗</a>
+      </div>
+      <div class="wxcredit"><a href="https://www.meteoblue.com/de/wetter/woche/garmisch-partenkirchen_deutschland_2922530" target="_blank" rel="noopener">Wetter: meteoblue</a></div>
+    </div>
+    <div class="embed" data-embed style="aspect-ratio:16/10;">
+      <iframe src="https://www.foto-webcam.eu/webcam/kreuzeck/?frame=1" title="Webcam Kreuzeck" loading="lazy" allowfullscreen></iframe>
+      <a class="vidfb nop" href="https://www.foto-webcam.eu/webcam/kreuzeck/" target="_blank" rel="noopener" aria-label="Webcam Kreuzeck öffnen">
+        <svg class="mtn" viewBox="0 0 400 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 90V60L50 30 80 52 140 8 190 50 240 22 300 58 350 34 400 56V90Z" fill="#0F1A20"/></svg>
+        <span class="cap">Webcam Kreuzeck ansehen ↗</span>
+      </a>
+    </div>
     <div class="cards">
       <div class="card">
         <h3>Option 1: Klettersteig Alpspitze</h3>
@@ -392,8 +409,6 @@ footer h2{color:#fff;}
         </div>
         <div class="linkrow">
           <a href="https://www.bergsteigen.com/touren/klettersteig/alpspitz-ferrata-alpspitze-klettersteig/" target="_blank" rel="noopener">Tourenbeschreibung</a>
-          <a href="https://zugspitze.de/de/Service-Informationen/Wetter" target="_blank" rel="noopener">Bergwetter Garmisch-Classic</a>
-          <a href="https://zugspitze.de/de/Service-Informationen/Webcams" target="_blank" rel="noopener">Webcam Alpspitze/Kreuzeck</a>
         </div>
       </div>
       <div class="card">
@@ -435,8 +450,6 @@ footer h2{color:#fff;}
         </div>
         <div class="linkrow">
           <a href="https://www.bergwelten.com/t/w/11544" target="_blank" rel="noopener">Tourenbeschreibung</a>
-          <a href="https://zugspitze.de/de/Service-Informationen/Wetter" target="_blank" rel="noopener">Bergwetter Zugspitze</a>
-          <a href="https://zugspitze.de/de/Service-Informationen/Webcams" target="_blank" rel="noopener">Webcam Zugspitze/Höllental</a>
           <a href="https://www.hoellentalklamm-info.de/informationen.html" target="_blank" rel="noopener">Höllentalklamm</a>
         </div>
       </div>
@@ -447,8 +460,7 @@ footer h2{color:#fff;}
 
 <section class="alt" id="huette">
   <div class="wrap narrow">
-    <p class="eyebrow">Die Hütte</p>
-    <h2>Trögelhütte</h2>
+    <p class="eyebrow">Die Trögelhütte</p>
     <div class="embed" data-embed>
       <iframe src="https://www.youtube-nocookie.com/embed/UzpQTd1Rtzc" title="Video: Trögelhütte" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
       <a class="vidfb" href="https://www.youtube.com/watch?v=UzpQTd1Rtzc" target="_blank" rel="noopener" aria-label="Video zur Trögelhütte auf YouTube ansehen">
@@ -457,19 +469,15 @@ footer h2{color:#fff;}
         <span class="cap">Video zur Trögelhütte auf YouTube ansehen ↗</span>
       </a>
     </div>
-    <div class="weather" data-embed>
-      <iframe src="https://www.meteoblue.com/de/wetter/widget/daily/garmisch-partenkirchen_deutschland_2922530?geoloc=fixed&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coverimage=0&pictoicon=1&maxtemperature=1&mintemperature=1&windspeed=1&windgust=0&winddirection=1&uv=0&humidity=0&precipitation=0&precipitationprobability=0&spot=0&pressure=0&layout=light" title="Wetter Garmisch-Partenkirchen" loading="lazy" scrolling="no"></iframe>
-      <div class="wxfb">
-        <svg width="84" height="60" viewBox="0 0 84 60" aria-hidden="true"><circle cx="30" cy="26" r="12" fill="#E8B04A"/><g stroke="#E8B04A" stroke-width="3" stroke-linecap="round"><path d="M30 6v5M30 41v5M10 26h5M45 26h5M16 12l3 3M44 12l-3 3"/></g><path d="M36 48a10 10 0 0 1 2-19.8A13 13 0 0 1 63 30a9 9 0 0 1-1 18Z" fill="#DDE3E6" stroke="#fff" stroke-width="2"/></svg>
-        <strong>Wetter Garmisch-Partenkirchen</strong>
-        <a href="https://www.meteoblue.com/de/wetter/woche/garmisch-partenkirchen_deutschland_2922530" target="_blank" rel="noopener">Aktuelle Vorhersage bei meteoblue ↗</a>
-      </div>
-      <div class="wxcredit"><a href="https://www.meteoblue.com/de/wetter/woche/garmisch-partenkirchen_deutschland_2922530" target="_blank" rel="noopener">Wetter: meteoblue</a></div>
+    <div class="embed" data-embed style="aspect-ratio:16/10;">
+      <iframe src="https://www.foto-webcam.eu/webcam/hausberg/?frame=1" title="Webcam Hausberg" loading="lazy" allowfullscreen></iframe>
+      <a class="vidfb nop" href="https://www.foto-webcam.eu/webcam/hausberg/" target="_blank" rel="noopener" aria-label="Webcam Hausberg öffnen">
+        <svg class="mtn" viewBox="0 0 400 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 90V60L50 30 80 52 140 8 190 50 240 22 300 58 350 34 400 56V90Z" fill="#0F1A20"/></svg>
+        <span class="cap">Webcam Hausberg ansehen ↗</span>
+      </a>
     </div>
     <div class="linkrow">
       <a href="https://www.alpenverein-muenchen-oberland.de/troegelhuette" target="_blank" rel="noopener">Hütten-Seite</a>
-      <a href="https://zugspitze.de/de/Service-Informationen/Wetter" target="_blank" rel="noopener">Bergwetter Garmisch-Classic</a>
-      <a href="https://zugspitze.de/de/Service-Informationen/Webcams" target="_blank" rel="noopener">Webcam Kreuzeck/Alpspitze</a>
     </div>
     <div class="sheet-note" style="margin-top:22px;">Auf den Toiletten hängen blickdichte Beutel für Tampons. Da sich die Waschbecken nicht in den Toiletten befinden, stellen wir Feuchttücher bereit. Seife ist in den Waschräumen vorhanden.</div>
   </div>
