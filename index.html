@@ -129,6 +129,25 @@ ol.timeline .sub p{margin:0 0 10px;}
 .sheetcta{display:block; background:var(--forest); color:#F3EEE2; font-weight:600; text-align:center; padding:12px 14px;}
 .sheetcard:hover .sheetcta,.sheetcard:focus-visible .sheetcta{background:var(--clay);}
 
+.embed{position:relative; aspect-ratio:16/9; border-radius:4px; overflow:hidden; background:#1E2A33; margin:18px 0;}
+.embed iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+.vidfb{position:absolute; inset:0; display:none; flex-direction:column; align-items:center; justify-content:center; gap:12px; color:#F3EEE2; text-decoration:none; background:linear-gradient(160deg,#35525F,#1E2A33);}
+.embed.fb .vidfb{display:flex;}
+.vidfb .mtn{position:absolute; left:0; bottom:0; width:100%; opacity:.45;}
+.vidfb .play{position:relative; width:68px; height:68px; border-radius:50%; background:var(--clay); display:grid; place-items:center; box-shadow:0 2px 10px rgba(0,0,0,.4);}
+.vidfb .play::before{content:""; border-left:22px solid #fff; border-top:13px solid transparent; border-bottom:13px solid transparent; margin-left:6px;}
+.vidfb .cap{position:relative; font-weight:600; font-size:.95rem; text-align:center; padding:0 16px;}
+.vidfb:hover .play,.vidfb:focus-visible .play{background:var(--gold);}
+.weather{margin:18px 0; border:1px solid var(--line); border-radius:4px; background:var(--paper); padding:12px;}
+.weather iframe{display:block; width:100%; max-width:540px; height:500px; border:0; margin:0 auto; background:#fff; border-radius:3px;}
+.weather.fb iframe{display:none;}
+.wxfb{display:none; text-align:center; padding:18px 12px 12px; flex-direction:column; align-items:center; gap:10px;}
+.weather.fb .wxfb{display:flex;}
+.wxfb strong{font-family:'Fraunces',serif; font-size:1.05rem;}
+.wxfb a{display:inline-block; background:var(--forest); color:#F3EEE2; font-weight:600; font-size:.86rem; padding:8px 15px; border-radius:3px; text-decoration:none;}
+.wxfb a:hover{background:var(--clay);}
+.wxcredit{font-size:.74rem; color:var(--dusk); text-align:right; margin-top:6px;}
+.wxcredit a{color:inherit;}
 /* Essen / Sheet */
 .sheet-embed{border:1px solid var(--line); border-radius:3px; overflow:hidden; margin:18px 0;}
 .sheet-embed iframe{width:100%; height:420px; border:0; display:block;}
@@ -159,6 +178,22 @@ footer h2{color:#fff;}
   .facts{grid-template-columns:1fr 1fr;}
 }
 </style>
+<script>
+(function(){
+  var hits=[];
+  function apply(){
+    document.querySelectorAll('[data-embed]').forEach(function(box){
+      var f=box.querySelector('iframe'); if(!f) return;
+      var host=(f.getAttribute('src')||'').split('/')[2]||'';
+      hits.forEach(function(h){ if(host && h.indexOf(host)>-1) box.classList.add('fb'); });
+    });
+  }
+  document.addEventListener('securitypolicyviolation',function(e){
+    if(/frame/.test(e.effectiveDirective||'')||/frame/.test(e.violatedDirective||'')){ hits.push(e.blockedURI||''); apply(); }
+  });
+  document.addEventListener('DOMContentLoaded',apply);
+})();
+</script>
 </head>
 <body>
 
@@ -258,7 +293,7 @@ footer h2{color:#fff;}
               <text class="plabel" x="396" y="114" text-anchor="end">1,5 km</text>
             </svg>
             </div>
-            <p class="tnote">Strecke, Höhenmeter und Höhenprofil stammen aus dem GPX-Track. Die Gehzeit ist ein Richtwert nach DIN 33466.</p>
+            <p class="tnote">Pausenzeiten sind nicht berücksichtigt.</p>
             <a class="tcta" href="https://www.alpenvereinaktiv.com/de/r/354066627?share=%7E3si4ctoo%244ossqalz&amp;utm_source=unknown&amp;utm_medium=social&amp;utm_campaign=user-shared-social-content" target="_blank" rel="noopener">Tour &amp; Karte ansehen ↗</a>
           </div>
         </div>
@@ -299,7 +334,7 @@ footer h2{color:#fff;}
               <text class="plabel" x="396" y="114" text-anchor="end">4,2 km</text>
             </svg>
             </div>
-            <p class="tnote">Strecke, Höhenmeter und Höhenprofil stammen aus dem GPX-Track. Die Gehzeit ist ein Richtwert nach DIN 33466.</p>
+            <p class="tnote">Pausenzeiten sind nicht berücksichtigt.</p>
             <a class="tcta" href="https://www.alpenvereinaktiv.com/de/r/354069350?share=%7E3si4rdxo%244ossqanb&amp;utm_source=unknown&amp;utm_medium=social&amp;utm_campaign=user-shared-social-content" target="_blank" rel="noopener">Tour &amp; Karte ansehen ↗</a>
           </div>
         </div>
@@ -351,7 +386,7 @@ footer h2{color:#fff;}
               <text class="plabel" x="396" y="114" text-anchor="end">12,5 km</text>
             </svg>
             </div>
-            <p class="tnote">Strecke, Höhenmeter und Höhenprofil stammen aus dem GPX-Track. Die Gehzeit ist ein Richtwert nach DIN 33466, ohne Pausen und Wartezeiten am Klettersteig.</p>
+            <p class="tnote">Pausenzeiten sind nicht berücksichtigt.</p>
             <a class="tcta" href="https://www.alpenvereinaktiv.com/de/r/354111639?share=%7E3siesosa%244ossqgxj&amp;utm_source=unknown&amp;utm_medium=social&amp;utm_campaign=user-shared-social-content" target="_blank" rel="noopener">Tour &amp; Karte ansehen ↗</a>
           </div>
         </div>
@@ -394,7 +429,7 @@ footer h2{color:#fff;}
             </svg>
             </div>
             <p class="sheet-note"><strong>Rückweg zur Trögelhütte:</strong> entweder mit der Gondel (Kreuzeckbahn) ab der Talstation oder zu Fuß über den normalen Aufstieg zur Hütte.</p>
-            <p class="tnote">Strecke, Höhenmeter und Höhenprofil stammen aus dem GPX-Track. Die Gehzeit ist ein Richtwert nach DIN 33466, ohne Pausen und ohne den Rückweg.</p>
+            <p class="tnote">Pausenzeiten sind nicht berücksichtigt.</p>
             <a class="tcta" href="https://www.alpenvereinaktiv.com/de/tour/wanderung-zur-hoellentalklamm/354896616/?utm_source=unknown&amp;utm_medium=social&amp;utm_campaign=user-shared-social-content&amp;share=~3sntu9ob$4ossrhcu" target="_blank" rel="noopener">Tour &amp; Karte ansehen ↗</a>
           </div>
         </div>
@@ -414,6 +449,23 @@ footer h2{color:#fff;}
   <div class="wrap narrow">
     <p class="eyebrow">Die Hütte</p>
     <h2>Trögelhütte</h2>
+    <div class="embed" data-embed>
+      <iframe src="https://www.youtube-nocookie.com/embed/UzpQTd1Rtzc" title="Video: Trögelhütte" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <a class="vidfb" href="https://www.youtube.com/watch?v=UzpQTd1Rtzc" target="_blank" rel="noopener" aria-label="Video zur Trögelhütte auf YouTube ansehen">
+        <svg class="mtn" viewBox="0 0 400 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 90V60L50 30 80 52 140 8 190 50 240 22 300 58 350 34 400 56V90Z" fill="#0F1A20"/></svg>
+        <span class="play"></span>
+        <span class="cap">Video zur Trögelhütte auf YouTube ansehen ↗</span>
+      </a>
+    </div>
+    <div class="weather" data-embed>
+      <iframe src="https://www.meteoblue.com/de/wetter/widget/daily/garmisch-partenkirchen_deutschland_2922530?geoloc=fixed&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coverimage=0&pictoicon=1&maxtemperature=1&mintemperature=1&windspeed=1&windgust=0&winddirection=1&uv=0&humidity=0&precipitation=0&precipitationprobability=0&spot=0&pressure=0&layout=light" title="Wetter Garmisch-Partenkirchen" loading="lazy" scrolling="no"></iframe>
+      <div class="wxfb">
+        <svg width="84" height="60" viewBox="0 0 84 60" aria-hidden="true"><circle cx="30" cy="26" r="12" fill="#E8B04A"/><g stroke="#E8B04A" stroke-width="3" stroke-linecap="round"><path d="M30 6v5M30 41v5M10 26h5M45 26h5M16 12l3 3M44 12l-3 3"/></g><path d="M36 48a10 10 0 0 1 2-19.8A13 13 0 0 1 63 30a9 9 0 0 1-1 18Z" fill="#DDE3E6" stroke="#fff" stroke-width="2"/></svg>
+        <strong>Wetter Garmisch-Partenkirchen</strong>
+        <a href="https://www.meteoblue.com/de/wetter/woche/garmisch-partenkirchen_deutschland_2922530" target="_blank" rel="noopener">Aktuelle Vorhersage bei meteoblue ↗</a>
+      </div>
+      <div class="wxcredit"><a href="https://www.meteoblue.com/de/wetter/woche/garmisch-partenkirchen_deutschland_2922530" target="_blank" rel="noopener">Wetter: meteoblue</a></div>
+    </div>
     <div class="linkrow">
       <a href="https://www.alpenverein-muenchen-oberland.de/troegelhuette" target="_blank" rel="noopener">Hütten-Seite</a>
       <a href="https://zugspitze.de/de/Service-Informationen/Wetter" target="_blank" rel="noopener">Bergwetter Garmisch-Classic</a>
@@ -440,6 +492,7 @@ footer h2{color:#fff;}
       </div>
       <span class="sheetcta">Hier eintragen: Tabelle öffnen ↗</span>
     </a>
+    <p>Für die Abende bringt bitte außerdem eure Lieblingssnacks mit.</p>
     <div class="callout">Für die Wandertour am Samstag bitte zusätzlich eigene Snacks und Verpflegung für unterwegs mitbringen.</div>
   </div>
 </section>
@@ -465,6 +518,10 @@ footer h2{color:#fff;}
     <details>
       <summary>Fürs Wandern</summary>
       <ul class="checklist" data-cat="wandern"><li>Trinkflasche / Trinksystem</li><li>Rucksack</li><li>Snacks für unterwegs</li><li>Biwaksack (wenn vorhanden)</li><li>Klettersteigset (wenn vorhanden)</li><li>Klettergurt (wenn vorhanden)</li><li>Kletterhelm (wenn vorhanden)</li><li>Wanderstöcke (optional)</li></ul>
+    </details>
+    <details>
+      <summary>Verpflegung</summary>
+      <ul class="checklist" data-cat="verpflegung"><li>eine Sache fürs Frühstück</li><li>Lieblingssnacks</li><li>Wanderverpflegung</li><li>alkoholische Getränke nach Gusto</li></ul>
     </details>
     <details>
       <summary>Sonstiges</summary>
